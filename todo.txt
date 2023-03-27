@@ -1,3 +1,3 @@
-192.168.1.13
-10
-8080
+replace this line whit ip of your server
+60 set delay between each request to server
+8080 this is port but server is listening to 8080 so just live it like this
