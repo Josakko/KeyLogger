@@ -1,5 +1,7 @@
+#this is same server like index.js but made in python eave tho js server works better so i recommend using it insted
 import os
 from flask import Flask, request
+
 
 def create_app():
     app = Flask(__name__)
