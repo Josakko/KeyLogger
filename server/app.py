@@ -1,4 +1,4 @@
-#this is same server like index.js but made in python eave tho js server works better so i recommend using it instead
+#this is same server like index.js but made in python eaven tho js server works better so i recommend using it instead
 import os
 from flask import Flask, request
 
