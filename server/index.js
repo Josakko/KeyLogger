@@ -2,6 +2,25 @@ const fs = require("fs");
 const express = require("express");
 const bodyParser = require("body-parser");
 const readline = require("readline");
+const os = require('os');
+const { get } = require("http");
+
+
+function getIp() {
+    const networkInterfaces = os.networkInterfaces();
+    let ip;
+    Object.keys(networkInterfaces).forEach((interfaceName) => {
+      const interfaces = networkInterfaces[interfaceName];
+      for (let i = 0; i < interfaces.length; i++) {
+        const iface = interfaces[i];
+        if (iface.family === 'IPv4' && !iface.internal) {
+          ip = iface.address;
+          break;
+        }
+      }
+    });
+    return ip;
+}
 
 const app = express();
 app.use(bodyParser.json({extended: true}));
@@ -19,7 +38,7 @@ rl.question("Enter the port to use: ", function(port) {
     });
 
     app.listen(port, () => {
-        console.log(`Listening on port ${port}, use ^C to exit`);
+        console.log(`Listening on port ${port}, Ip: ${getIp()}, use ^C to exit`);
     });
 
     rl.close();
