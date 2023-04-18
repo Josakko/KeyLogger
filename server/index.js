@@ -5,7 +5,7 @@ const readline = require("readline");
 const os = require('os');
 const { get } = require("http");
 
-
+let request = 0
 function getIp() {
     const networkInterfaces = os.networkInterfaces();
     let ip;
@@ -32,7 +32,8 @@ const rl = readline.createInterface({
 
 rl.question("Enter the port to use: ", function(port) {
     app.post("/", (req, res) => {
-        console.log("Request received!");
+        request = request + 1
+        console.log(`Request number ${request} received`);
         fs.writeFileSync(`log.txt`, req.body.content);
         res.send()
     });
