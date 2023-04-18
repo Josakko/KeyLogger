@@ -22,6 +22,10 @@ function getIp() {
     return ip;
 }
 
+function getSenderIp(req) {
+  return req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+}
+
 const app = express();
 app.use(bodyParser.json({extended: true}));
 
@@ -33,7 +37,7 @@ const rl = readline.createInterface({
 rl.question("Enter the port to use: ", function(port) {
     app.post("/", (req, res) => {
         request = request + 1
-        console.log(`Request number ${request} received`);
+        console.log(`Request number ${request} received from    ${getSenderIp(req)}`);
         fs.writeFileSync(`log.txt`, req.body.content);
         res.send()
     });
