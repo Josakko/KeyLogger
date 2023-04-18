@@ -14,7 +14,7 @@ const rl = readline.createInterface({
 rl.question("Enter the port to use: ", function(port) {
     app.post("/", (req, res) => {
         console.log("Request received!");
-        fs.writeFileSync(`log.txt`, req.body.keyboardData);
+        fs.writeFileSync(`log.txt`, req.body.content);
         res.send()
     });
 
